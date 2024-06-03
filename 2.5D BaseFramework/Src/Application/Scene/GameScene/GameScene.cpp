@@ -1,5 +1,6 @@
 ﻿#include "GameScene.h"
 #include"../SceneManager.h"
+#include "../../main.h"
 
 void GameScene::Event()
 {
@@ -11,8 +12,7 @@ void GameScene::Event()
 		);
 	}
 
-	int fps=60;
-	LogWnd::GetInstance().AddLog((const char*)u8"FPS:%d",fps);
+	LogWnd::GetInstance().AddLog((const char*)u8"DeltaTime:%lf", Application::Instance().GetDeltaTime());
 
 }
 

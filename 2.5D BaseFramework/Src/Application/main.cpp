@@ -58,6 +58,10 @@ void Application::KdPostUpdate()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PreUpdate()
 {
+	//デルタタイム
+	m_deltaTime = timeGetTime()/1000.0 - m_beforeTime;
+	m_beforeTime = timeGetTime()/1000.0;
+
 	SceneManager::Instance().PreUpdate();
 }
 
@@ -240,6 +244,10 @@ bool Application::Init(int w, int h)
 	io.Fonts->AddFontDefault();
 	//日本語対応
 	io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\msgothic.ttc", 13.0f, &config, glyphRangesJapanese);
+
+	//デルタタイム
+	m_deltaTime = 0;
+	m_beforeTime = timeGetTime()/1000.0;
 
 	return true;
 }
