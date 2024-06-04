@@ -73,6 +73,12 @@
     <Filter Include="Src\Application\ImGui">
       <UniqueIdentifier>{70c717a0-3ac3-41ea-b71d-5cc640b945cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\GameObject">
+      <UniqueIdentifier>{526dd849-e2f8-4abf-b4da-2a5b95a543f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Player">
+      <UniqueIdentifier>{71704a2e-dd18-4b7b-9d09-a581471af28d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -243,6 +249,15 @@
     <ClInclude Include="Src\Application\ImGui\ImGuiHelper.h">
       <Filter>Src\Application\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\SingletonTemplate.h">
+      <Filter>Src\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Player\Player.h">
+      <Filter>Src\Application\GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Player\PlayerMoveArea.h">
+      <Filter>Src\Application\GameObject\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -385,6 +400,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\ImGui\ImGuiHelper.cpp">
       <Filter>Src\Application\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Player\Player.cpp">
+      <Filter>Src\Application\GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Player\PlayerMoveArea.cpp">
+      <Filter>Src\Application\GameObject\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -117,3 +117,4 @@
 
 
 #include "Application/ImGui/ImGuiHelper.h"
+#include "Application/SingletonTemplate.h"

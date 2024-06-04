@@ -23,6 +23,13 @@ public:
 
 	double GetDeltaTime()const { return m_deltaTime; }
 
+	/// <summary>
+	/// マウスの座標を求める
+	/// </summary>
+	/// <param name="isRevision">画面を中心とした座標に補正するか</param>
+	/// <returns>マウスの座標</returns>
+	POINT GetMousePos(bool isRevision=true)const;
+
 private:
 
 	void KdBeginUpdate();

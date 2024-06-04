@@ -28,6 +28,8 @@ public :
 		m_objList.push_back(_obj);
 	}
 
+	const std::unique_ptr<KdCamera>& GetCamera()const { return m_camera; }
+
 protected :
 
 	// 継承先シーンで必要ならオーバーライドする

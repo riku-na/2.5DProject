@@ -49,9 +49,9 @@ public:
 	}
 
 	//ウィンドウ描画
-	void ImGuiUpdate(const char* title, bool* p_opened = NULL)
+	void ImGuiUpdate(bool* p_opened = NULL)
 	{
-		ImGui::Begin(title, p_opened);
+		ImGui::Begin((const char*)"Log Window", p_opened);
 		ImGui::TextUnformatted(m_buf.begin());
 		if (m_scrollToBottom)
 			ImGui::SetScrollHereY(1.0f);
@@ -74,4 +74,55 @@ public:
 	}
 };
 
-typedef ImGuiLogWindow LogWnd;
+using LogWnd = ImGuiLogWindow;
+
+
+class ImGuiFunctionButton
+{
+public:
+
+	void RegisterFunction( const char* _name,std::function<void(void)> _func)
+	{
+		m_functions[_name]= _func;
+	};
+
+	//ウィンドウ描画
+	void ImGuiUpdate()
+	{
+		ImGui::SetNextWindowPos(ImVec2(20, 20), (ImGuiCond)2);
+		ImGui::SetNextWindowSize(ImVec2(100, 200), (ImGuiCond)2);
+
+		ImGui::Begin((const char*)"Buttons");
+		
+		auto it = m_functions.begin();
+		while(it!=m_functions.end())
+		{
+			if (ImGui::Button((*it).first))
+			{
+				(*it).second();
+			}
+
+			it++;
+		}
+
+		ImGui::End();
+	}
+
+	void Clear() 
+	{
+		m_functions.clear();
+	};
+
+private:
+	std::unordered_map<const char*,std::function<void(void)>> m_functions;
+
+	ImGuiFunctionButton() {};
+	~ImGuiFunctionButton() {};
+
+public:
+	static ImGuiFunctionButton& GetInstance()
+	{
+		static ImGuiFunctionButton inst;
+		return inst;
+	}
+};

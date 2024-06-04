@@ -32,6 +32,23 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_  HINSTANCE, _In_ LPSTR , _In_ int)
 	return 0;
 }
 
+POINT Application::GetMousePos(bool isRevision)const
+{
+	//マウス座標取得
+	POINT _mousePos;
+	GetCursorPos(&_mousePos);//座標
+	ScreenToClient(Application::Instance().m_window.GetWndHandle(), &_mousePos);//スクリーン内
+
+	if (isRevision)
+	{
+		_mousePos.x -= 640;
+		_mousePos.y -= 360;
+		_mousePos.y *= -1;
+	}
+
+	return _mousePos;
+}
+
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 // アプリケーション更新開始
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -116,8 +133,10 @@ void Application::DrawImGui()
 	//ImGui::ShowDemoWindow(nullptr);
 
 
-	ImGuiLogWindow::GetInstance().ImGuiUpdate("Log Window");
+	ImGuiLogWindow::GetInstance().ImGuiUpdate();
 	LogWnd::GetInstance().Clear();
+
+	ImGuiFunctionButton::GetInstance().ImGuiUpdate();
 	//テスト
 	/*if (ImGui::Begin("Window"))
 	{
