@@ -81,9 +81,9 @@ class ImGuiFunctionButton
 {
 public:
 
-	void RegisterFunction( const char* _name,std::function<void(void)> _func)
+	void RegisterFunction(const char* _name, std::function<void(void)> _func)
 	{
-		m_functions[_name]= _func;
+		m_functions[_name] = _func;
 	};
 
 	//ウィンドウ描画
@@ -93,9 +93,9 @@ public:
 		ImGui::SetNextWindowSize(ImVec2(100, 200), (ImGuiCond)2);
 
 		ImGui::Begin((const char*)"Buttons");
-		
+
 		auto it = m_functions.begin();
-		while(it!=m_functions.end())
+		while (it != m_functions.end())
 		{
 			if (ImGui::Button((*it).first))
 			{
@@ -108,13 +108,13 @@ public:
 		ImGui::End();
 	}
 
-	void Clear() 
+	void Clear()
 	{
 		m_functions.clear();
 	};
 
 private:
-	std::unordered_map<const char*,std::function<void(void)>> m_functions;
+	std::unordered_map<const char*, std::function<void(void)>> m_functions;
 
 	ImGuiFunctionButton() {};
 	~ImGuiFunctionButton() {};
@@ -125,4 +125,62 @@ public:
 		static ImGuiFunctionButton inst;
 		return inst;
 	}
+};
+
+class ImGuiShaderManager
+{
+public:
+
+	//ウィンドウ描画
+	void ImGuiUpdate()
+	{
+		ImGui::SetNextWindowPos(ImVec2(400, 20), (ImGuiCond)2);
+		ImGui::SetNextWindowSize(ImVec2(100, 200), (ImGuiCond)2);
+
+		//ImGui::Begin((const char*)"Shader");
+
+		if (ImGui::TreeNode("Bright"))
+		{
+			static float brightThreshold = 1.2;
+			if (ImGui::SliderFloat((const char*)u8"閾値", &brightThreshold, -0.5, 1.0))
+			{
+				KdShaderManager::Instance().m_postProcessShader.SetBrightThreshold(brightThreshold);
+
+			}
+
+			ImGui::TreePop();
+		}
+
+
+		if (ImGui::TreeNode("Fog"))
+		{
+			static bool IsEnableDistanceFog = false;
+			static bool IsEnableHeightFog = false;
+
+			if (ImGui::Checkbox((const char*)u8"距離フォグ有効", &IsEnableDistanceFog))
+				KdShaderManager::Instance().WorkAmbientController().SetFogEnable(IsEnableDistanceFog, IsEnableHeightFog);
+
+			if (ImGui::Checkbox((const char*)u8"高さフォグ有効", &IsEnableHeightFog))
+				KdShaderManager::Instance().WorkAmbientController().SetFogEnable(IsEnableDistanceFog, IsEnableHeightFog);
+
+			static float DistanceFogDensity = 0.001f;
+
+			if (ImGui::SliderFloat((const char*)u8"距離フォグ密度", &DistanceFogDensity, 0.0f,0.02f))
+				KdShaderManager::Instance().WorkAmbientController().SetDistanceFog(Math::Vector3{ 1,1,1 }, DistanceFogDensity);
+
+
+			ImGui::TreePop();
+		}
+
+
+
+		//ImGui::End();
+	}
+
+
+public:
+
+	ImGuiShaderManager() {};
+	~ImGuiShaderManager() {};
+
 };

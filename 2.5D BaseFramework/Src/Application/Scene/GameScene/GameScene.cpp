@@ -2,6 +2,8 @@
 #include"../SceneManager.h"
 #include "../../main.h"
 #include "../../GameObject/Player/Player.h"
+#include "../../GameObject/Gound/Ground.h"
+#include "../../GameObject/BackGround/BackGround.h"
 
 void GameScene::Event()
 {
@@ -11,6 +13,9 @@ void GameScene::Event()
 
 		AddObject(std::make_shared<Player>(shared_from_this()));
 
+		AddObject(std::make_shared<Ground>(shared_from_this()));
+
+		AddObject(std::make_shared<BackGround>());
 	}
 	
 
@@ -48,4 +53,7 @@ void GameScene::Init()
 {
 	m_camera = std::make_unique<KdCamera>();
 	m_camera->SetCameraMatrix(Math::Matrix::CreateTranslation(0,0,-20));
+
+	KdEffekseerManager::GetInstance().Create(1280, 720);
+	KdEffekseerManager::GetInstance().SetCamera(m_camera);
 }

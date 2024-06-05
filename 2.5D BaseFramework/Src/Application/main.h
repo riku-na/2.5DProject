@@ -30,6 +30,7 @@ public:
 	/// <returns>マウスの座標</returns>
 	POINT GetMousePos(bool isRevision=true)const;
 
+
 private:
 
 	void KdBeginUpdate();
@@ -65,6 +66,8 @@ private:
 	//デルタタイム
 	double m_deltaTime=0;
 	double m_beforeTime=0;
+
+	std::unique_ptr<ImGuiShaderManager> imguiShaderManager;
 
 //=====================================================
 // シングルトンパターン

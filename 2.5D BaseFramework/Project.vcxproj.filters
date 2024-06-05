@@ -79,6 +79,15 @@
     <Filter Include="Src\Application\GameObject\Player">
       <UniqueIdentifier>{71704a2e-dd18-4b7b-9d09-a581471af28d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\GameObject\Item">
+      <UniqueIdentifier>{fef88ae4-0c83-4293-9d06-447ea487f8ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\Ground">
+      <UniqueIdentifier>{7108f1db-09cb-4619-92bb-1557acd99350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameObject\BackGround">
+      <UniqueIdentifier>{216424e7-dd8b-416a-8b95-bcad5607e988}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -258,6 +267,15 @@
     <ClInclude Include="Src\Application\GameObject\Player\PlayerMoveArea.h">
       <Filter>Src\Application\GameObject\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Item\Item.h">
+      <Filter>Src\Application\GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Gound\Ground.h">
+      <Filter>Src\Application\GameObject\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\BackGround\BackGround.h">
+      <Filter>Src\Application\GameObject\BackGround</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -406,6 +424,15 @@
     </ClCompile>
     <ClCompile Include="Src\Application\GameObject\Player\PlayerMoveArea.cpp">
       <Filter>Src\Application\GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Item\Item.cpp">
+      <Filter>Src\Application\GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Gound\Ground.cpp">
+      <Filter>Src\Application\GameObject\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\BackGround\BackGround.cpp">
+      <Filter>Src\Application\GameObject\BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

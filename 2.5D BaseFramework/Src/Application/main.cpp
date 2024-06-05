@@ -137,6 +137,9 @@ void Application::DrawImGui()
 	LogWnd::GetInstance().Clear();
 
 	ImGuiFunctionButton::GetInstance().ImGuiUpdate();
+
+	imguiShaderManager->ImGuiUpdate();
+
 	//テスト
 	/*if (ImGui::Begin("Window"))
 	{
@@ -267,6 +270,8 @@ bool Application::Init(int w, int h)
 	//デルタタイム
 	m_deltaTime = 0;
 	m_beforeTime = timeGetTime()/1000.0;
+
+	imguiShaderManager = std::make_unique<ImGuiShaderManager>();
 
 	return true;
 }

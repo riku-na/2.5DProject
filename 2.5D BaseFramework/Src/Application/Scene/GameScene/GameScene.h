@@ -11,11 +11,13 @@ public :
 
 	const Math::Vector2& GetPlayAreaSize()const { return PlayAreaSize; }
 
+	const float& GetHighSpeed()const { return m_highSpeed; }
+
 private:
 	bool m_isPlaying = false;
 	double m_gameTime = 0;
 
-	float m_highSpeed = 5.0f;
+	float m_highSpeed = 30.0f;
 
 	void Event() override;
 	void Init() override;
