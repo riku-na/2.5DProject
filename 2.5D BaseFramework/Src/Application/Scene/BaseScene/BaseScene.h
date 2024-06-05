@@ -28,7 +28,7 @@ public :
 		m_objList.push_back(_obj);
 	}
 
-	const std::unique_ptr<KdCamera>& GetCamera()const { return m_camera; }
+	const std::shared_ptr<KdCamera>& GetCamera()const { return m_camera; }
 
 protected :
 
@@ -36,7 +36,7 @@ protected :
 	virtual void Event();
 	virtual void Init();
 
-	std::unique_ptr<KdCamera> m_camera = nullptr;
+	std::shared_ptr<KdCamera> m_camera = nullptr;
 
 	// 全オブジェクトのアドレスをリストで管理
 	std::list<std::shared_ptr<KdGameObject>> m_objList;

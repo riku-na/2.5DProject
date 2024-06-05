@@ -14,6 +14,8 @@ public :
 	const float& GetHighSpeed()const { return m_highSpeed; }
 
 private:
+	
+
 	bool m_isPlaying = false;
 	double m_gameTime = 0;
 

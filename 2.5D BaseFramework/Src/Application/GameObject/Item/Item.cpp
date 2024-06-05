@@ -18,7 +18,7 @@ Item::~Item()
 
 void Item::Update()
 {
-	std::shared_ptr<GameScene> _owner = m_owner.lock();
+	auto _owner = m_owner.lock();
 	if (_owner)
 	{
 		m_pos.z -= _owner->GetHighSpeed() * Application::Instance().GetDeltaTime();

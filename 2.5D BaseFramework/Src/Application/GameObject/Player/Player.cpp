@@ -13,7 +13,7 @@ Player::Player(std::weak_ptr<GameScene> _owner)
 	m_pos = {};
 
 	//移動用の判定壁生成
-	std::shared_ptr<GameScene> _nowScene = m_owner.lock();
+	auto _nowScene = m_owner.lock();
 	if (_nowScene)
 	{
 		_nowScene->AddObject(std::make_shared<PlayerMoveArea>());
@@ -35,7 +35,21 @@ void Player::Update()
 
 	POINT _mousePos = Application::Instance().GetMousePos(false);
 
-	std::shared_ptr<GameScene> _owner = m_owner.lock();
+	static bool spaceKey = false;
+
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		if (!spaceKey)
+		{
+			spaceKey = true;
+
+			KdEffekseerManager::GetInstance().Play("Flash.efkefc", m_pos, -0.7f, 2.5f, false);
+		}
+	}
+	else
+		spaceKey = false;
+
+	auto _owner = m_owner.lock();
 	if (_owner)
 	{
 		//レイ情報計算

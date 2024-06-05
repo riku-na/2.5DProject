@@ -51,7 +51,7 @@ void GameScene::Event()
 
 void GameScene::Init()
 {
-	m_camera = std::make_unique<KdCamera>();
+	m_camera = std::make_shared<KdCamera>();
 	m_camera->SetCameraMatrix(Math::Matrix::CreateTranslation(0,0,-20));
 
 	KdEffekseerManager::GetInstance().Create(1280, 720);

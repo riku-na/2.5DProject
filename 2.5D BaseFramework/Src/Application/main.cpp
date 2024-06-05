@@ -88,6 +88,8 @@ void Application::PreUpdate()
 void Application::Update()
 {
 	SceneManager::Instance().Update();
+
+	KdEffekseerManager::GetInstance().Update();
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -166,7 +168,10 @@ void Application::PreDraw()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::Draw()
 {
+
 	SceneManager::Instance().Draw();
+	
+	KdEffekseerManager::GetInstance().Draw();
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -187,6 +192,7 @@ void Application::PostDraw()
 void Application::DrawSprite()
 {
 	SceneManager::Instance().DrawSprite();
+
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
