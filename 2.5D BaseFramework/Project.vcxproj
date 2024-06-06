@@ -159,6 +159,7 @@
     <ClInclude Include="Src\Application\GameObject\BackGround\BackGround.h" />
     <ClInclude Include="Src\Application\GameObject\Gound\Ground.h" />
     <ClInclude Include="Src\Application\GameObject\Item\Item.h" />
+    <ClInclude Include="Src\Application\GameObject\Note\Note.h" />
     <ClInclude Include="Src\Application\GameObject\Player\Player.h" />
     <ClInclude Include="Src\Application\GameObject\Player\PlayerMoveArea.h" />
     <ClInclude Include="Src\Application\ImGui\ImGuiHelper.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="Src\Application\GameObject\BackGround\BackGround.cpp" />
     <ClCompile Include="Src\Application\GameObject\Gound\Ground.cpp" />
     <ClCompile Include="Src\Application\GameObject\Item\Item.cpp" />
+    <ClCompile Include="Src\Application\GameObject\Note\Note.cpp" />
     <ClCompile Include="Src\Application\GameObject\Player\Player.cpp" />
     <ClCompile Include="Src\Application\GameObject\Player\PlayerMoveArea.cpp" />
     <ClCompile Include="Src\Application\ImGui\ImGuiHelper.cpp" />

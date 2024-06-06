@@ -335,6 +335,12 @@ bool KdSoundInstance::IsStopped()
 	return (m_instance->GetState() == DirectX::SoundState::STOPPED);
 }
 
+double KdSoundInstance::GetAudioTime()
+{
+	m_instance->GetChannelCount();
+	return 0.0;
+}
+
 
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////

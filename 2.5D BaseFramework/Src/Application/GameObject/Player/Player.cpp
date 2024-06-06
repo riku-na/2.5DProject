@@ -19,7 +19,7 @@ Player::Player(std::weak_ptr<GameScene> _owner)
 		_nowScene->AddObject(std::make_shared<PlayerMoveArea>());
 	}
 
-	std::function<void(void)> f = [&] {isDraw = false; };
+	std::function<void(void)> f =  [&] {isDraw = false; };
 	ImGuiFunctionButton::GetInstance().RegisterFunction((const char*)u8"非表示",f);
 
 	 f = [&] {isDraw = true; };

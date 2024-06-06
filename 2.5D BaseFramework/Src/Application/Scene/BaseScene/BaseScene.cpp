@@ -94,6 +94,8 @@ void BaseScene::Draw()
 		{
 			obj->DrawUnLit();
 		}
+
+		KdEffekseerManager::GetInstance().Draw();
 	}
 	KdShaderManager::Instance().m_StandardShader.EndUnLit();
 

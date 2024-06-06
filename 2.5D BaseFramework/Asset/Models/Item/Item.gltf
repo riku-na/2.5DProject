@@ -3,9 +3,6 @@
 		"generator":"Khronos glTF Blender I/O v3.6.28",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_materials_emissive_strength"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -18,33 +15,23 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"\u7acb\u65b9\u4f53",
-			"scale":[
-				0.5,
-				0.5,
-				0.5
+			"name":"\u5186",
+			"translation":[
+				0,
+				0.11729073524475098,
+				0
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"emissiveFactor":[
-				1,
-				1,
-				1
-			],
-			"extensions":{
-				"KHR_materials_emissive_strength":{
-					"emissiveStrength":100
-				}
-			},
 			"name":"\u30de\u30c6\u30ea\u30a2\u30eb",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.800000011920929,
-					0.800000011920929,
-					0.800000011920929,
+					1,
+					0.8175631165504456,
+					0,
 					1
 				],
 				"metallicFactor":0,
@@ -54,7 +41,7 @@
 	],
 	"meshes":[
 		{
-			"name":"\u7acb\u65b9\u4f53",
+			"name":"\u5186",
 			"primitives":[
 				{
 					"attributes":{
@@ -72,10 +59,10 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":24,
+			"count":64,
 			"max":[
 				1,
-				1,
+				0.5,
 				1
 			],
 			"min":[
@@ -88,51 +75,51 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":24,
+			"count":64,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":24,
+			"count":64,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":36,
+			"count":90,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":288,
+			"byteLength":768,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":288,
-			"byteOffset":288,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":192,
-			"byteOffset":576,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":72,
+			"byteLength":768,
 			"byteOffset":768,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":512,
+			"byteOffset":1536,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":180,
+			"byteOffset":2048,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":840,
+			"byteLength":2228,
 			"uri":"Item.bin"
 		}
 	]

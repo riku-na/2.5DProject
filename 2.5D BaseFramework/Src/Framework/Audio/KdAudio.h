@@ -116,6 +116,8 @@ public:
 	bool IsPause();
 	bool IsStopped();
 
+	double GetAudioTime();
+
 protected:
 
 	// サウンドの再生インスタンス

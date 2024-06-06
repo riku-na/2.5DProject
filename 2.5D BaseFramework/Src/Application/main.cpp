@@ -171,7 +171,6 @@ void Application::Draw()
 
 	SceneManager::Instance().Draw();
 	
-	KdEffekseerManager::GetInstance().Draw();
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
