@@ -8,7 +8,7 @@ Player::Player(std::weak_ptr<GameScene> _owner)
 	:m_owner(_owner)
 {
 	m_model = std::make_shared<KdModelData>();
-	m_model->Load("Asset/Models/Player/box.gltf");
+	m_model->Load("Asset/Models/Player/ship.gltf");
 	m_mWorld = Math::Matrix::Identity;
 	m_pos = {};
 
@@ -119,5 +119,5 @@ void Player::DrawUnLit()
 void Player::DrawBright()
 {
 	if (isDraw)
-		KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld);
+		KdShaderManager::Instance().m_StandardShader.DrawModel(*m_model, m_mWorld, Math::Color{ 0,1,0,1 },Math::Vector3{10,10,10});
 }

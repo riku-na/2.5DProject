@@ -157,6 +157,7 @@
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
     <ClInclude Include="Src\Application\GameObject\BackGround\BackGround.h" />
+    <ClInclude Include="Src\Application\GameObject\Flick\Flick.h" />
     <ClInclude Include="Src\Application\GameObject\Gound\Ground.h" />
     <ClInclude Include="Src\Application\GameObject\Item\Item.h" />
     <ClInclude Include="Src\Application\GameObject\Note\Note.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Src\Application\GameObject\BackGround\BackGround.cpp" />
+    <ClCompile Include="Src\Application\GameObject\Flick\Flick.cpp" />
     <ClCompile Include="Src\Application\GameObject\Gound\Ground.cpp" />
     <ClCompile Include="Src\Application\GameObject\Item\Item.cpp" />
     <ClCompile Include="Src\Application\GameObject\Note\Note.cpp" />

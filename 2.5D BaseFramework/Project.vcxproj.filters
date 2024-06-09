@@ -91,6 +91,9 @@
     <Filter Include="Src\Application\GameObject\Note">
       <UniqueIdentifier>{b4b029ae-9ab6-4c12-9970-91353a546a97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\GameObject\Flick">
+      <UniqueIdentifier>{7c24b34e-a2d0-4cc9-b765-666acd3db37d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -282,6 +285,9 @@
     <ClInclude Include="Src\Application\GameObject\Note\Note.h">
       <Filter>Src\Application\GameObject\Note</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\GameObject\Flick\Flick.h">
+      <Filter>Src\Application\GameObject\Flick</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -442,6 +448,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\GameObject\Note\Note.cpp">
       <Filter>Src\Application\GameObject\Note</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameObject\Flick\Flick.cpp">
+      <Filter>Src\Application\GameObject\Flick</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

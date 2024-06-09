@@ -8,6 +8,7 @@
 #include <fstream>
 #include "../../GameObject/Note/Note.h"
 #include "../../GameObject/Item/Item.h"
+#include "../../GameObject/Flick/Flick.h"
 
 void GameScene::Event()
 {
@@ -20,6 +21,9 @@ void GameScene::Event()
 		AddObject(std::make_shared<Ground>(shared_from_this()));
 
 		AddObject(std::make_shared<BackGround>());
+
+		//AddObject(std::make_shared<Flick>(shared_from_this(), 0,0, Math::Vector2{0,0}));
+
 	}
 
 
@@ -115,6 +119,10 @@ void GameScene::StartGame()
 
 		case NoteType::Item:
 			AddObject(std::make_shared<Item>(shared_from_this(), (*it)->m_timing, (*it)->m_speed, (*it)->m_pos));
+			break;
+
+		case NoteType::Flick:
+			AddObject(std::make_shared<Flick>(shared_from_this(), (*it)->m_timing, (*it)->m_speed, (*it)->m_pos));
 			break;
 		}
 		it++;

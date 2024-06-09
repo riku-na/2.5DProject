@@ -178,12 +178,12 @@ void KdStandardShader::DrawModel(const KdModelData& rModel, const Math::Matrix& 
 	for (auto& nodeIdx : rModel.GetDrawMeshNodeIndices())
 	{
 		// 描画
-		DrawMesh(dataNodes[nodeIdx].m_spMesh.get(), dataNodes[nodeIdx].m_worldTransform * mWorld, 
+		DrawMesh(dataNodes[nodeIdx].m_spMesh.get(), dataNodes[nodeIdx].m_worldTransform * mWorld,
 			rModel.GetMaterials(), colRate, emissive);
 	}
 
 	// 定数に変更があった場合は自動的に初期状態に戻す
-	if(m_dirtyCBObj)
+	if (m_dirtyCBObj)
 	{
 		ResetCBObject();
 	}
@@ -272,14 +272,16 @@ void KdStandardShader::DrawPolygon(const KdPolygon& rPolygon, const Math::Matrix
 	KdShaderManager::Instance().ChangeRasterizerState(KdRasterizerState::CullNone);
 
 	// サンプラーステートの変更:ポリゴンの描画なので、テクスチャの末端が繰り返されると不自然な描画になるため変更が必要
-	if (KdShaderManager::Instance().IsPixelArtStyle())
+	/*if (KdShaderManager::Instance().IsPixelArtStyle())
 	{
 		KdShaderManager::Instance().ChangeSamplerState(KdSamplerState::Point_Clamp);
 	}
 	else
 	{
 		KdShaderManager::Instance().ChangeSamplerState(KdSamplerState::Anisotropic_Clamp);
-	}
+	}*/
+
+	KdShaderManager::Instance().ChangeSamplerState(KdSamplerState::Anisotropic_Wrap);
 
 	// 描画パイプラインのチェック
 	ID3D11VertexShader* pNowVS = nullptr;
@@ -457,8 +459,8 @@ bool KdStandardShader::Init()
 			Release();
 			return false;
 		}
-	} 
-	
+	}
+
 	{
 #include "KdStandardShader_PS_UnLit.shaderInc"
 
@@ -503,7 +505,7 @@ void KdStandardShader::Release()
 	KdSafeRelease(m_VS_UnLit);
 
 	KdSafeRelease(m_inputLayout);
-	
+
 	KdSafeRelease(m_PS_Lit);
 	KdSafeRelease(m_PS_GenDepthFromLight);
 	KdSafeRelease(m_PS_UnLit);
