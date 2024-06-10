@@ -22,7 +22,9 @@ private:
 
 	const double m_timing;
 	const float m_speed;
+
 	Math::Vector3 m_pos;
+	Math::Vector3 m_defaultPos;
 
 	Math::Vector3 m_cubePos;
 
@@ -30,8 +32,16 @@ private:
 
 	bool m_isJudge = false;
 
-	static constexpr float NoteDispTime = 1.0f;
+	static constexpr float NoteDispTime = 2.0f;
+	static constexpr float PerfectTime = 0.1f;
+
+	static constexpr float RockRadius = 5;
 
 	const Math::Vector3 sPos ;
 	const Math::Vector3 ePos ;
+
+	std::shared_ptr<KdSquarePolygon> target_Center;
+	KdTexture targetTex;
+
+	bool isRock = false;
 };

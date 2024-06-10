@@ -22,4 +22,6 @@ private:
 
 	const double m_timing;
 	const float m_speed;
+
+	double leftTime;
 };

@@ -24,6 +24,8 @@ Player::Player(std::weak_ptr<GameScene> _owner)
 
 	 f = [&] {isDraw = true; };
 	ImGuiFunctionButton::GetInstance().RegisterFunction((const char*)u8"表示", f);
+
+	isDraw = false;
 }
 
 Player::~Player()

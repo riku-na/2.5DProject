@@ -127,6 +127,65 @@ public:
 	}
 };
 
+class ImGuiSlider
+{
+public:
+
+	void RegisterSlider(const char* _name,float _min,float _max,float*_value)
+	{
+		SliderValue s;
+		s.min = _min;
+		s.max = _max;
+		s.value = _value;
+
+		m_sliders[_name] = s;
+	};
+
+	//ウィンドウ描画
+	void ImGuiUpdate()
+	{
+		ImGui::SetNextWindowPos(ImVec2(20, 20), (ImGuiCond)2);
+		ImGui::SetNextWindowSize(ImVec2(100, 200), (ImGuiCond)2);
+
+		ImGui::Begin((const char*)"Sliders");
+
+		auto it = m_sliders.begin();
+		while (it != m_sliders.end())
+		{
+			ImGui::SliderFloat((*it).first, (*it).second.value, (*it).second.min, (*it).second.max);
+
+			it++;
+		}
+
+		ImGui::End();
+	}
+
+	void Clear()
+	{
+		m_sliders.clear();
+	};
+
+private:
+	struct SliderValue
+	{
+		float min = 0.0f;
+		float max = 1.0f;
+		float* value;
+	};
+
+	std::unordered_map<const char*, SliderValue> m_sliders;
+
+	ImGuiSlider() {};
+	~ImGuiSlider() {};
+
+public:
+	static ImGuiSlider& GetInstance()
+	{
+		static ImGuiSlider inst;
+		return inst;
+	}
+};
+
 class ImGuiShaderManager
 {
 public:

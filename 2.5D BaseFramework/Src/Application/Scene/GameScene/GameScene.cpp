@@ -10,13 +10,22 @@
 #include "../../GameObject/Item/Item.h"
 #include "../../GameObject/Flick/Flick.h"
 
+const Math::Vector3& GameScene::GetPlayerPos() const
+{
+	// TODO: return ステートメントをここに挿入します
+	return m_playerPtr.lock()->GetPosition();
+}
+
 void GameScene::Event()
 {
 	if (!isInitGame)
 	{
 		isInitGame = true;
 
-		AddObject(std::make_shared<Player>(shared_from_this()));
+		std::shared_ptr<Player> _player = std::make_shared<Player>(shared_from_this());
+		m_playerPtr = _player;
+
+		AddObject(_player);
 
 		AddObject(std::make_shared<Ground>(shared_from_this()));
 
@@ -42,7 +51,17 @@ void GameScene::Event()
 		if (!enterKeyFlag)
 		{
 			enterKeyFlag = true;
-			UnPauseGame();
+
+			if (!isStartGame)
+			{
+				isStartGame = true;
+
+				StartGame();
+			}
+			else
+			{
+				PauseGame();
+			}
 		}
 	}
 	else
@@ -54,16 +73,8 @@ void GameScene::Event()
 		if (!spaceKeyFlag)
 		{
 			spaceKeyFlag = true;
-			if (!isStartGame)
-			{
-				isStartGame = true;
-
-				StartGame();
-			}
-			else
-			{
-				PauseGame();
-			}
+			
+			UnPauseGame();
 		}
 	}
 	else
@@ -99,7 +110,10 @@ void GameScene::PauseGame()
 
 void GameScene::UnPauseGame()
 {
-	m_isPlaying = true;
+	if (m_notes.size() != 0)
+	{
+		m_isPlaying = true;
+	}
 }
 
 void GameScene::StartGame()
@@ -122,7 +136,7 @@ void GameScene::StartGame()
 			break;
 
 		case NoteType::Flick:
-			AddObject(std::make_shared<Flick>(shared_from_this(), (*it)->m_timing, (*it)->m_speed, (*it)->m_pos));
+			//AddObject(std::make_shared<Flick>(shared_from_this(), (*it)->m_timing, (*it)->m_speed, (*it)->m_pos));
 			break;
 		}
 		it++;

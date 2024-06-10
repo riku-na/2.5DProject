@@ -13,6 +13,8 @@ public:
 	void DrawUnLit()override;
 	void DrawBright()override;
 
+	const Math::Vector3& GetPosition()const { return m_pos; }
+
 private:
 	std::weak_ptr<GameScene>m_owner;
 

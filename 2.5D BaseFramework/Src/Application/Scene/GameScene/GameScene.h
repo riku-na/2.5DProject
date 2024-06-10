@@ -2,6 +2,8 @@
 
 #include"../BaseScene/BaseScene.h"
 
+class Player;
+
 class GameScene : public BaseScene, public std::enable_shared_from_this<GameScene>
 {
 public:
@@ -14,6 +16,9 @@ public:
 	const float& GetHighSpeed()const { return m_highSpeed; }
 
 	const double& GetGameTime()const { return m_gameTime; }
+
+	const Math::Vector3& GetPlayerPos()const;
+
 
 private:
 	enum class NoteType
@@ -64,4 +69,6 @@ private:
 
 	bool enterKeyFlag = false;
 	bool spaceKeyFlag = false;
+
+	std::weak_ptr<Player> m_playerPtr;
 };

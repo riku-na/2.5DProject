@@ -4,8 +4,8 @@
 
 Flick::Flick(std::weak_ptr<GameScene> _owner, double _timing, float _speed, Math::Vector2 _pos)
 	:m_owner(_owner)
-	,m_timing(_timing)
-	,m_speed(_speed)
+	, m_timing(_timing)
+	, m_speed(_speed)
 {
 	m_ScrollPolygon = std::make_shared<KdSquarePolygon>();
 	m_ScrollPolygon->SetMaterial("Asset/Textures/Test_BaseColor_transparent.png");
@@ -27,7 +27,7 @@ Flick::~Flick()
 
 void Flick::Update()
 {
-	
+
 	static float _uvX = 0;
 	static float _uvY = 0;
 
@@ -35,13 +35,16 @@ void Flick::Update()
 	if (_owner)
 	{
 
-		_uvX += Application::Instance().GetDeltaTime()*_owner->GetHighSpeed();
+		_uvX += Application::Instance().GetDeltaTime() * _owner->GetHighSpeed();
 		_uvY -= Application::Instance().GetDeltaTime() * _owner->GetHighSpeed();
 		LogWnd::GetInstance().AddLog((const char*)u8"UVX:%.2f,UVY:%.2f", _uvX, _uvY);
 
 		m_ScrollPolygon->SetUVRect(Math::Rectangle{ (long)_uvX,(long)_uvY,512,512 });
 
 		double _gameTime = _owner->GetGameTime();
+
+		leftTime = m_timing - _gameTime;
+
 
 		{
 			m_pos.z = _owner->GetHighSpeed() * (m_timing - _gameTime);
@@ -61,8 +64,14 @@ void Flick::Update()
 
 void Flick::DrawUnLit()
 {
-	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_ScrollPolygon, m_mWorld, Math::Color{ 1,0.647,0,0.7f });
-	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_FramePolygon, m_mWorld, Math::Color{ 1,0.647,0,1.0f });
+	KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_ScrollPolygon, m_mWorld, Math::Color{ 1,0.647,0,1.0f - (float)leftTime });
+
+	//KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_FramePolygon, m_mWorld, Math::Color{ 1,0.647,0,1.0f });
+
+	if (leftTime < 1.0f)
+	{
+		KdShaderManager::Instance().m_StandardShader.DrawPolygon(*m_FramePolygon, m_mWorld*Math::Matrix::CreateScale(1.0f - (float)leftTime), Math::Color{1,0.647,0,1.0f - (float)leftTime});
+	}
 }
 
 void Flick::DrawBright()
